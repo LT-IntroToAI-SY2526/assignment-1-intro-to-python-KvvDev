@@ -68,12 +68,29 @@ Convert from (C)elsius or (F)ahrenheit? X
 Invalid conversion type!
 ```
 """
-from tokenize import Double
+
+
+
 
 
 def convert_temp():
-    # float var1 = input()
+    var1 = float(input())
+    var2 = var1
     print("Convert from (C)elsius or (F)ahrenheit? ")
+    convert = input()
+    if convert == "C" or convert == "Celsius" or convert == "c" or convert == "celsius":
+        var2 *= 9.0/5.0
+        var2 += 32
+        print(str(var1)+"°C = "+str(var2)+"°F")
+        #F = (C × 9/5) + 32
+    elif convert == "F" or convert == "Fahrenheit" or convert == "f" or convert == "fahrenheit":
+        var2 -= 32
+        var2 *= 5.0/9.0
+        print(str(var1)+"°F = "+str(var2)+"°C")
+        #C = (F - 32) × 5/9
+    else:
+        print("Invalid conversion type!")
+
 """
 ---
 
@@ -103,7 +120,13 @@ Error: Score must be between 0 and 100
 Enter your score: 45
 Your grade is: F
 ```
+"""
+def grade_calculator():
+    print("Enter your score: ")
+    grade = float(input())
+    if grade >= 90:
 
+"""
 ---
 
 ## Problem 3: Number Guessing Game (While Loops & Conditionals)
@@ -315,7 +338,7 @@ print(f"is_even(7): {is_even(7)}")  # Should print False
 """
 
 print("Testing Problem 1:")
-# Add your tests here
+#convert_temp()
 
 print("\nTesting Problem 2:")
 # Add your tests here
