@@ -73,6 +73,11 @@ Invalid conversion type!
 
 
 
+from ctypes.wintypes import CHAR
+from sndhdr import whathdr
+from socket import sethostname
+
+
 def convert_temp():
     var1 = float(input())
     var2 = var1
@@ -123,9 +128,22 @@ Your grade is: F
 """
 def grade_calculator():
     print("Enter your score: ")
-    grade = float(input())
-    if grade >= 90:
-
+    score = float(input())
+    grade = "/"
+    if score > 100 or score < 0:
+        print("Error: Score must be between 0 and 100")
+    elif score >= 90:
+        grade = "A"
+    elif score >= 80:
+        grade = "B"
+    elif score >= 70:
+        grade = "C"
+    elif score >= 60:
+        grade = "D"
+    else:
+        grade = "F"
+    if grade != "/":
+        print("Your grade is: "+grade)
 """
 ---
 
@@ -160,7 +178,31 @@ Too low! Game over. The number was 67.
 ```
 
 **Hint:** Use `import random` and `random.randint(1, 100)` to generate a random number.
+"""
+import random
+def number_guessing_game():
+    print("I'm thinking of a number between 1 and 100!")
+    the_number = random.randint(1, 100)
+    print("You have 7 attempts.")
+    attempts_used = 0
+    while (7 - attempts_used) > 0:
+        attempts_used += 1
+        guess = input("\nAttempt "+attempts_used+" - Enter your guess: ")
+        if guess == the_number:
+            print("Congratulations! You guessed it in "+attempts_used+" attempts!")
+            break
+        elif guess < the_number:
+            print("Too low! Try again.")
+        elif guess > the_number:
+            print("Too high! Try agian.")
 
+
+
+
+
+
+        
+"""
 ---
 
 ## Problem 4: List Statistics Function (Functions & Lists)
@@ -341,7 +383,7 @@ print("Testing Problem 1:")
 #convert_temp()
 
 print("\nTesting Problem 2:")
-# Add your tests here
+grade_calculator()
 
 print("\nTesting Problem 3:")
 # Add your tests here
