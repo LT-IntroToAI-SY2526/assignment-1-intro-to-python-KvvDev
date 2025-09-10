@@ -75,7 +75,7 @@ Invalid conversion type!
 
 from ctypes.wintypes import CHAR
 from sndhdr import whathdr
-from socket import sethostname
+#from socket import sethostname
 
 
 def convert_temp():
@@ -187,14 +187,21 @@ def number_guessing_game():
     attempts_used = 0
     while (7 - attempts_used) > 0:
         attempts_used += 1
-        guess = input("\nAttempt "+attempts_used+" - Enter your guess: ")
+        guess = int(input("\nAttempt "+str(attempts_used)+" - Enter your guess: "))
         if guess == the_number:
-            print("Congratulations! You guessed it in "+attempts_used+" attempts!")
+            print("Congratulations! You guessed it in "+str(attempts_used)+" attempts!")
             break
+        elif attempts_used >= 7:
+            if guess < the_number:
+                print("Too low! Game over. The number was "+str(the_number))
+            else:
+                print("Too high! Game over. The number was "+str(the_number))
         elif guess < the_number:
             print("Too low! Try again.")
         elif guess > the_number:
-            print("Too high! Try agian.")
+            print("Too high! Try again.")
+        
+    
 
 
 
@@ -234,7 +241,21 @@ Minimum: 5
 Maximum: 30
 Count: 5
 ```
+"""
+def calculate_stats():
+    print("Enter numbers (type 'done' to finish):")
+    answer = ""
+    numbers = []
+    while answer != "done": #didn't use a while answer != done because then the done would go into the list
+        answer = input()
+        numbers.append(answer)
+    numbers.pop()
+    print(str(numbers))
+    print("\nStatistics:")
+    print("Sum: "+sum(numbers))
+    print("Average: "+mean(numbers))
 
+"""
 ---
 
 ## Problem 5: Word Frequency Counter (Nested Loops & Advanced Lists)
@@ -383,13 +404,13 @@ print("Testing Problem 1:")
 #convert_temp()
 
 print("\nTesting Problem 2:")
-grade_calculator()
+#grade_calculator()
 
 print("\nTesting Problem 3:")
-# Add your tests here
+#number_guessing_game()
 
 print("\nTesting Problem 4:")
-# Add your tests here
+calculate_stats()
 
 print("\nTesting Problem 5:")
 # Add your tests here

@@ -27,6 +27,10 @@ def absolute(n: int) -> int:
     Returns:
         the absolute value of the passed in number
     """
+    if n < 0:
+        return -n
+    return n
+
     raise NotImplementedError("absolute")
 
 
@@ -40,7 +44,9 @@ def factorial(n: int) -> int:
     Returns:
         factorial of the passed in number
     """
-    raise NotImplementedError("factorial")
+    if n == 1:
+        return 1
+    return factorial(n-1)*n
 
 
 T = TypeVar("T")
@@ -57,7 +63,7 @@ def every_other(lst: List[T]) -> List[T]:
     Returns:
         a list of every of other item in the original list starting with the first
     """
-    raise NotImplementedError("every_other")
+    return lst[::2]
 
 
 def sum_list(lst: List[int]) -> int:
@@ -70,7 +76,10 @@ def sum_list(lst: List[int]) -> int:
     Returns:
         the sum of the passed in list
     """
-    raise NotImplementedError("sum_list")
+    runtally = 0
+    for i in lst:
+        runtally += lst[i]
+    return runtally
 
 
 def mean(lst: List[int]) -> float:
