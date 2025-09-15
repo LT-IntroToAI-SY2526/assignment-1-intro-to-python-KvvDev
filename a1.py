@@ -74,7 +74,9 @@ Invalid conversion type!
 
 
 from ctypes.wintypes import CHAR
+from operator import contains
 from sndhdr import whathdr
+from xml.etree.ElementInclude import DEFAULT_MAX_INCLUSION_DEPTH
 #from socket import sethostname
 
 
@@ -246,14 +248,18 @@ def calculate_stats():
     print("Enter numbers (type 'done' to finish):")
     answer = ""
     numbers = []
-    while answer != "done": #didn't use a while answer != done because then the done would go into the list
+    while answer != "done":
         answer = input()
-        numbers.append(answer)
-    numbers.pop()
+        if answer != "done":
+            numbers.append(int(answer))
+    print("while exited")
     print(str(numbers))
     print("\nStatistics:")
-    print("Sum: "+sum(numbers))
-    print("Average: "+mean(numbers))
+    print("Sum: "+str(sum(numbers)))
+    print("Average: "+str(sum(numbers) / len(numbers)))
+    print("Minimum: "+str(min(numbers)))
+    print("Maximum: "+str(max(numbers)))
+    print("Count: "+str(len(numbers)))
 
 """
 ---
@@ -282,7 +288,19 @@ lazy: 1
 dog: 1
 is: 1
 ```
+"""
+def word_frequency_counter():
+    words = input("Enter a sentence: ").split()
+    word = ""
+    counted_words = {}
+    for i in words:
+        word = words[i]
+        if not (counted_words.contains(word)):
+            counted_words[word] = words.count(word)
+            print(word+": "+words.count(word))
 
+
+"""
 ---
 
 ## Problem 6: Password Validator Function (Complex Conditionals & String Operations)
@@ -414,5 +432,3 @@ calculate_stats()
 
 print("\nTesting Problem 5:")
 # Add your tests here
-
-
