@@ -19,7 +19,8 @@ After completing your problems, reflect on:
 1. **What was your initial experience with Python?** How did it compare to other programming languages you've used?
 My initial experience with Python was that it was kind of simplistic. It feels weird not to worry about data types as much. 
 2. **How did you use AI effectively?** Give specific examples of good prompts you used and what you learned from the responses.
-I asked Claude "Does Python have type casting?"
+I asked Claude "Does Python have type casting?" It gave me a nice long answer explaining how types work in Python, which was very useful
 3. **What concepts were most challenging?** How did AI help you understand them?
-
+Types were challenging. Claude explained them for me though, and I feel like I understand them now. It seems that Python sort of changes stuff into whatever type IT thinks is most convenient, which is weird and not what I'm used to.
 4. **What did you learn about collaborating with AI?** What strategies worked best for learning rather than just getting answers?
+I learned that you should ask it for ONLY the information you DON'T have, because otherwise you're just throwing out your model-of-how-the-thing-works in favor of the big complete explanation the AI gives.
